@@ -1,0 +1,38 @@
+---
+- name: clone vim config
+  become: true
+  become_user: "{{ main_user }}"
+  git:
+    repo: https://github.com/mtnstar/dot-vim.git
+    dest: "~/.wnd/.vim"
+    update: yes
+    version: main
+
+- name: Create backup dir
+  become: true
+  become_user: "{{ main_user }}"
+  file:
+    path: ~/.wnd/.vim/backup
+    state: directory
+
+- name: create config symlink
+  become: true
+  become_user: "{{ main_user }}"
+  file: path=~/.wnd/.vimrc
+        src=~/.wnd/.vim/vimrc
+        state=link
+        force=yes
+
+- name: Create neovim config dir
+  become: true
+  become_user: "{{ main_user }}"
+  file:
+    path: "/home/{{ main_user }}/.wnd/.config/nvim"
+    state: directory
+
+- name: add neovim config
+  become: true
+  become_user: "{{ main_user }}"
+  template:
+    src: init.vim
+    dest: "/home/{{ main_user }}/.wnd/.config/nvim/init.vim"
