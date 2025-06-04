@@ -5,3 +5,11 @@
     src: "files/wnd"
     dest: "~/bin/wnd"
     mode: '0700'
+
+- name: copy wnd bashrc
+  become: true
+  become_user: "{{ main_user }}"
+  copy:
+    src: "files/dot-bashrc"
+    dest: "~/.wnd/.bashrc"
+    mode: '0600'
