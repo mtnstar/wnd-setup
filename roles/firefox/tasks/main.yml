@@ -1,0 +1,15 @@
+- name: Ensure .desktop file directory for user
+  file:
+    path: "/home/{{ main_user }}/.local/share/applications"
+    state: directory
+    owner: "{{ main_user }}"
+    group: "{{ main_user }}"
+    mode: "0755"
+
+- name: Copy Firefox .desktop file to user's applications folder
+  copy:
+    dest: "/home/{{ main_user }}/.local/share/applications/wnd-firefox.desktop"
+    src: "files/wnd-firefox.desktop"
+    owner: "{{ main_user }}"
+    group: "{{ main_user }}"
+    mode: "0644"

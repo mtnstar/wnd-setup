@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=WND Firefox
+Exec=env HOME=/home/mtnstar/.wnd /usr/bin/firefox -no-remote -P default
+Terminal=false
+Icon=firefox
+Type=Application
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/vnd.mozilla.xul+xml;x-scheme-handler/http;x-scheme-handler/https;
+StartupNotify=true

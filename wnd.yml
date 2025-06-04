@@ -1,0 +1,8 @@
+---
+- name: Configure desktop
+  hosts: localhost
+
+  roles:
+    - { role: shell, tags: ['shell'] }
+    - { role: firefox, tags: ['firefox'] }
+    - { role: tools, tags: ['tools'] }

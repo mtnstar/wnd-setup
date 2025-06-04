@@ -1,0 +1,7 @@
+- name: copy wnd shell script to home/bin
+  become: true
+  become_user: "{{ main_user }}"
+  copy:
+    src: "files/wnd"
+    dest: "~/bin/wnd"
+    mode: '0700'

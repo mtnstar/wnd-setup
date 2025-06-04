@@ -1,0 +1,20 @@
+#!/bin/bash
+
+WND_HOME="$HOME/.wnd"
+
+mkdir -p "$WND_HOME"
+if [ $? -ne 0 ]; then
+  echo "Error: Could not create or access $WND_HOME. Exiting."
+  exit 1
+fi
+
+PROMPT_COMMAND="
+if [ -z \"\$PS1\" ]; then
+    export PS1=\"\[\e[1;34m\](WND)\[\e[0m\]:\w\$ \"
+else
+    export PS1=\"\[\e[1;34m\](WND)\[\e[0m\] \$PS1\"
+fi
+echo \"You are now in your WND shell. Home directory is \$HOME.\"
+"
+
+exec env HOME="$WND_HOME" bash -c "cd && $PROMPT_COMMAND exec bash -l"
