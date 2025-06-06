@@ -7,3 +7,4 @@
     - { role: firefox, tags: ['firefox'] }
     - { role: tools, tags: ['tools'] }
     - { role: vim, tags: ['vim'] }
+    - { role: vpn, tags: ['vpn'] }

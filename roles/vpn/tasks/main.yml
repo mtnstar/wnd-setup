@@ -1,0 +1,6 @@
+- name: Install openvpn
+  pacman:
+    name:
+      - openvpn
+      - networkmanager-openvpn
+    state: present
