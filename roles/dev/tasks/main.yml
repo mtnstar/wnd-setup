@@ -1,0 +1,6 @@
+- name: Install visualstudio code
+  kewlfft.aur.aur:
+    name: visual-studio-code-bin
+    state: present
+  become: yes
+  become_user: aur_builder
