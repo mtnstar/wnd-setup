@@ -13,3 +13,10 @@
     owner: "{{ main_user }}"
     group: "{{ main_user }}"
     mode: "0644"
+
+- name: Install nextcloud talk desktop
+  kewlfft.aur.aur:
+    name: nextcloud-talk-desktop-bin
+    state: present
+  become: yes
+  become_user: aur_builder
