@@ -13,3 +13,18 @@
     src: "files/dot-bashrc"
     dest: "~/.wnd/.bashrc"
     mode: '0600'
+
+- name: Ensure bashrc.d directory exists
+  become: true
+  become_user: "{{ main_user }}"
+  file:
+    path: "~/.wnd/.bashrc.d"
+    state: directory
+
+- name: copy wnd default commands
+  become: true
+  become_user: "{{ main_user }}"
+  copy:
+    src: "files/default-commands.sh"
+    dest: "~/.wnd/.bashrc.d/default-commands.sh"
+    mode: '0600'
