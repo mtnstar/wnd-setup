@@ -21,10 +21,18 @@
     path: "~/.wnd/.bashrc.d"
     state: directory
 
-- name: copy wnd default commands
+- name: copy bash default commands
   become: true
   become_user: "{{ main_user }}"
   copy:
     src: "files/default-commands.sh"
     dest: "~/.wnd/.bashrc.d/default-commands.sh"
+    mode: '0600'
+
+- name: copy bash aliases
+  become: true
+  become_user: "{{ main_user }}"
+  copy:
+    src: "files/aliases.sh"
+    dest: "~/.wnd/.bashrc.d/aliases.sh"
     mode: '0600'

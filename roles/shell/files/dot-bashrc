@@ -119,4 +119,7 @@ vagrant(){
       vagrant $@
 }
 
-source ~/.bashrc.d/*.sh 2>/dev/null || true
+for F in `ls /home/mtnstar/.wnd/.bashrc.d/*.sh`
+do
+  source "$F"
+done
